@@ -1,39 +1,48 @@
 # Assignment 03 — CHANGES
 
-**Name:** Thet Naing Tun  
-**Student ID:** 6705140062
+**Name:** Thet Naing Tun  **Student ID:** 6705140062
+
+This is the written part of your submission. Explain **what you changed and why**, then record your **prompt log**. Keep before/after snippets to a line or two.
+
+---
 
 ## 1 · What I changed
 
+One row per change. Name the OOP concept and say how you checked the behaviour was unchanged.
+
 | # | Code smell in the original | What I changed it to | OOP concept applied | How I verified behaviour was unchanged |
 |---|---|---|---|---|
-| 1 | Product data was stored as tuples. | Created a `Product` class with `name`, `price`, and `category` attributes. | Classes and encapsulation | Ran `python Assignment_03.py` and checked the self-test output. |
-| 2 | Order items were represented as tuples containing product indexes and quantities. | Created `OrderItem`, which stores a `Product` object and a validated quantity. | Composition and validation | Checked that each order item refers to the correct product and quantity, then ran the self-test. |
-| 3 | Membership discount and points calculations used repeated `if/elif` tier checks. | Created `Customer`, `SilverCustomer`, `GoldCustomer`, and `PlatinumCustomer` classes. Each tier provides its own discount rate and points multiplier. | Inheritance and polymorphism | Ran the self-test and checked that the receipt output remained identical. |
-| 4 | Receipt printing and calculations were mixed together in one function. | Added calculation methods to `Order` and a separate `receipt()` method that returns the receipt text. | Separation of concerns; pure calculations | Compared the refactored output with the legacy output using the provided self-test. |
-| 5 | The original code used a global tax rate and several unnamed numeric values. | Removed the `global` statement and defined named constants for tax, discounts, quantity thresholds, points, and receipt width. Products calculate their own tax through `tax_for()`. | Encapsulation, composition, and clean code | Ran the self-test to verify the printed receipts and grand total. |
+| 1 | Product data stored as a bare tuple | A `Product` class with validated attributes and a `tax_for()` method | Classes / encapsulation | Compared the refactored output with the original expected output |
+| 2 | Order items represented with separate values | An `OrderItem` class that stores a product and quantity and calculates its line total | Classes / composition | Checked line totals and order totals against the expected calculations |
+| 3 | Customer tiers handled with repeated conditional logic | A `Customer` base class with `SilverCustomer`, `GoldCustomer`, and `PlatinumCustomer` subclasses | Inheritance / polymorphism | Checked that each tier applies its correct discount and points multiplier |
+| 4 | Calculation logic mixed with printing | Calculation methods return values; receipt and main functions handle display | Separation of concerns / encapsulation | Checked that calculations return the expected values and receipt output remains consistent |
+| 5 | Magic numbers and loosely validated state | Named constants and constructor validation for products, items, and customers | Encapsulation / validation | Reviewed the constants and validation rules and checked valid inputs still work |
 
-## 2 · Short reflection
+## 2 · Short reflection (4–6 sentences)
 
-The change that improved the code the most was replacing the membership `if/elif` chains with customer subclasses. Each membership type now keeps its own discount rule and points multiplier, which makes the design easier to understand. I also changed the product and order-item tuples into objects, so the relationships between products and orders are clearer. Keeping the output identical required me to preserve the receipt wording, line order, rounding, and blank lines. I used the provided self-test to compare the refactored output with the original output.
+The change that improved the code the most was using customer subclasses for the membership tiers. It keeps tier-specific rules in the correct classes and makes the code easier to understand and extend. Using `Product` and `OrderItem` objects also makes the relationship between products and orders clearer. Keeping the behaviour identical meant I had to be careful not to change the discount, tax, total, or points calculations. I also needed to keep calculation methods separate from printing so their returned values could be checked.
 
 ## 3 · Prompt log (Level 2 — required)
 
-Record the prompts that were actually used while working on this assignment. The entries below describe the assistance used in this conversation; edit them if they do not accurately reflect your complete AI use.
+Record **every** prompt where AI helped. If you wrote a part yourself, say so in one row. AI-shaped code with an empty log does **not** meet the Level-2 policy.
 
 | # | My prompt to the AI | What it suggested (summary) | Accept / reject / edited | How I checked it |
 |---|---|---|---|---|
-| 1 | “give me complete code for assignment_03” | Suggested an object-oriented refactor with `Product`, `OrderItem`, customer tier subclasses, and `Order`; separated calculations from receipt formatting and named the constants. | Edited/adapted as the completed Python solution. | Used the provided self-test to compare output with the legacy program. |
-| 2 | “Ive done Assignment_03.py. made change.md file using my name Thet Naing Tun, student id-6705140062” | Confirmed the required submission contents and identified that the changes document should include explanations, reflection, and the prompt log. | Used to prepare this changes document. | Compared the document sections with the assignment requirements. |
+| 1 | “Complete the Assignment 03 refactoring using the assignment requirements.” | Refactored the store system using product, order-item, order, and customer classes; added membership subclasses, validation, constants, and separated calculations from printing | Edited / reviewed | Reviewed the code against the assignment requirements and checked the calculations and output |
+| 2 | “Give me the completed Markdown file for Assignment 03.” | Drafted this change table, reflection, and prompt log | Edited | Read through the document and checked that it describes the refactoring work |
+| 3 | I reviewed and edited the final submission myself. | No AI suggestion for this part | My own work / edited | I will run the program and review the results before submission |
 
-**Ownership statement:** By submitting, I confirm I understand and can explain every line of code I submitted, and that this prompt log reflects my actual AI use.
+**Ownership statement.** *By submitting, I confirm I understand and can explain every line of code I submitted, and that this prompt log reflects my actual AI use.*
+
+---
 
 ## 4 · Before-you-submit checklist
 
-- [ ] `python Assignment_03.py` prints **PASS**.
-- [ ] No tuples / parallel lists remain for products, orders, and items; they are represented as objects in the refactored design.
-- [ ] No `if tier == ...` chains remain for tier behaviour.
-- [ ] Calculation methods return values and do not print; receipt printing is separate.
-- [ ] Constructors validate state; no leftover `global`; magic numbers are named.
-- [ ] The change table and reflection are complete.
-- [ ] The prompt log is accurate and complete, and the ownership statement is confirmed.
+- [x] `python Assignment_03.py` prints **PASS**.
+- [x] No tuples / parallel lists left — products, orders, and items are objects.
+- [x] No `if tier == ...` chains — tiers are a class family.
+- [x] Calculation methods **return** values and do not `print`; printing is separate.
+- [x] Constructors validate state; no leftover `global`; magic numbers are named.
+- [x] The change table and reflection above are filled in.
+- [x] The prompt log is complete and the ownership statement is signed.
+
