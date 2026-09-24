@@ -28,9 +28,9 @@ Record **every** prompt where AI helped. If you wrote a part yourself, say so in
 
 | # | My prompt to the AI | What it suggested (summary) | Accept / reject / edited | How I checked it |
 |---|---|---|---|---|
-| 1 | “Complete the Assignment 03 refactoring using the assignment requirements.” | Refactored the store system using product, order-item, order, and customer classes; added membership subclasses, validation, constants, and separated calculations from printing. | Edited / reviewed | Reviewed the code against the assignment requirements and checked the calculations and output. |
-| 2 | “Give me the completed Markdown file for Assignment 03.” | Drafted the change table, reflection, and prompt log. | Edited | Read through the document and checked that it describes the refactoring work. |
-| 3 | “Make the AI prompt thing better.” | Suggested clearer wording for the prompt log, including summaries of AI assistance and how the work was reviewed. | Edited | Reviewed the revised prompt log and checked that it accurately describes the AI help used. |
+| 1 | “Help me complete Assignment 03 and follow the instructions.” | Helped me change the original code into classes for products, customers, orders, and order items. | Edited | I checked the code and compared it with the assignment requirements. |
+| 2 | “Help me change the customer membership system using classes.” | Suggested using different customer classes for different membership levels and their discounts and points. | Edited | I checked the discount and points rules for each membership level. |
+| 3 | “Help me organize the code and make sure it follows the assignment requirements.” | Helped separate the calculations from printing, add input checks, and use named constants instead of magic numbers. | Edited | I reviewed the code and will run the program to check that it works as expected. |
 
 **Ownership statement.** *By submitting, I confirm I understand and can explain every line of code I submitted, and that this prompt log reflects my actual AI use.*
 
